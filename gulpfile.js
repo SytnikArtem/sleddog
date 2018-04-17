@@ -1,20 +1,26 @@
-var gulp = require('gulp');
-    sass = require('gulp-sass');
-    browserSync = require('browser-sync');
-    concat = require('gulp-concat');
-    uglify = require('gulp-uglifyjs');
-    cssnano = require('gulp-cssnano');
-    rename = require('gulp-rename');
-    del = require('del');
-    autoprefixer = require('gulp-autoprefixer');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    browserSync = require('browser-sync'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglifyjs'),
+    cssnano = require('gulp-cssnano'),
+    rename = require('gulp-rename'),
+    del = require('del'),
+    autoprefixer = require('gulp-autoprefixer'),
+    tinypng = require('gulp-tinypng-compress'),
+    cache = require('gulp-cache'),
+    imagemin = require('gulp-imagemin'),
+    sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('sass',function(){
   return gulp.src('app/sass/**/*.sass')
+    .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer({
       browsers: ['last 2 version'],
       cascade: true
     }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({stream: true}))
 });
@@ -44,13 +50,36 @@ gulp.task('libs-css', ['sass'], function(){
 //     .pipe(uglify())
 //     .pipe(gulp.dest('app/js'));
 // })
+
+gulp.task('tiny', function(){
+  return gulp.src('app/img/**/*.+(png|jpg|jpeg')
+    .pipe(cache(tinypng({
+      key: '8wL2zZK5TlepqbA5Bti1akor3EE7pwV7',
+      sigFile: 'images/.tinypng-sigs',
+      sameDest: true,
+      log: true
+    })
+    ))
+    .pipe(gulp.dest('dist/img'));
+});
+
+gulp.task('img', ['tiny'], function(){
+  return gulp.src('app/img/**/*.+(svg|ico)')
+    .pipe(cache(imagemin({
+      interlaced: true,
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}]
+    })))
+    .pipe(gulp.dest('dist/img'));
+});
+
 gulp.task('watch', ['browser-sync', 'libs-css', 'jquery'], function() {
     gulp.watch('app/sass/**/*.sass', ['sass']);
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
-gulp.task('build', ['sass', 'jquery'], function(){
+gulp.task('build', ['sass', 'jquery', 'img'], function(){
   var buildCss = gulp.src([
     'app/css/main.css',
     'app/css/libs.min.css'

@@ -44,7 +44,8 @@ gulp.task('libs-css', ['sass'], function(){
 });
 gulp.task('libs-js', function(){
   return gulp.src([
-    'app/libs/slick-carousel/slick/slick.min.js'
+      'app/libs/slick-carousel/slick/slick.min.js',
+      'app/libs/wow/dist/wow.min.js'
   ])
     .pipe(concat('libs.min.js'))
     .pipe(uglify())
@@ -87,8 +88,8 @@ gulp.task('build', ['clean', 'sass', 'jquery', 'img'], function(){
   ])
   .pipe(gulp.dest('dist/css'))
 
-  // var buildFonts = gulp.src('app/fonts/**/*')
-  // .pipe(gulp.dest('dist/fonts'))
+  var buildFonts = gulp.src('app/fonts/**/*')
+  .pipe(gulp.dest('dist/fonts'))
 
   var buildJs = gulp.src('app/js/**/*')
   .pipe(gulp.dest('dist/js'))

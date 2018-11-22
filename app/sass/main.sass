@@ -11,28 +11,46 @@
 		box-sizing: border-box
 
 *::-webkit-input-placeholder
-	color: #666
+	color: #1e0f00
 	opacity: 1
 
 *:-moz-placeholder
-	color: #666
+	color: #1e0f00
 	opacity: 1
 
 *::-moz-placeholder
-	color: #666
+	color: #1e0f00
 	opacity: 1
 
 *:-ms-input-placeholder
-	color: #666
+	color: #1e0f00
 	opacity: 1
-
+.seventh-form-input::-webkit-input-placeholder, .seventh-form-textarea::-webkit-input-placeholder
+	color: rgba(84, 84, 84, 0.7)
+.seventh-form-input:-moz-placeholder, .seventh-form-textarea:-moz-placeholder
+	color: rgba(84, 84, 84, 0.7)
+.seventh-form-input::-moz-placeholder, .seventh-form-textarea::-moz-placeholder
+	color: rgba(84, 84, 84, 0.7)
+.seventh-form-input:-ms-input-placeholder, .seventh-form-textarea:-ms-input-placeholder
+	color: rgba(84, 84, 84, 0.7)
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
-	color: #666
+	color: #1e0f00
 body input:required:valid,
 body textarea:required:valid
-	color: #666
+	color: #1e0f00
 
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder
+	color: transparent
+
+input:focus:-moz-placeholder, textarea:focus:-moz-placeholder
+	color: transparent
+
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder
+	color: transparent
+
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder
+	color: transparent
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
 	margin: 0
 	padding: 0
@@ -64,16 +82,1194 @@ body
 	min-width: 320px
 	position: relative
 	line-height: normal
-	font-family: $default-font
+	font-family: "ProximaNova"
 	overflow-x: hidden
 
 img
 	display: block
 	max-width: 100%
 	height: auto
-
+.btn
+	outline: none
+	border: none
+	cursor: pointer
+	text-decoration: none
+	display: inline-block
+	transition: all .5s ease
+	&_active
+		&:hover
+			background: #381a06
+			color: #ffffff
+	&_dark
+		&:hover
+			background: $active
+			color: #381a06
 .text-center
 	text-align: center
+.container
+	max-width: 1230px
+	width: 100%
+	padding: 0 30px
+	margin: 0 auto
+	position: relative
+	z-index: 2
+.active-color
+	color: $active
+	transition: color .5s ease
+.white-color
+	color: #ffffff
+.bold
+	font-family: "ProximaNovaBold"
+.extra-bold
+	font-family: "ProximaNovaExtraBold"
+.nowrap
+	white-space: nowrap
+.stroke
+	width: 60px
+	height: 3px
+	background-color: #381a06
+	margin: 23px auto 0
+	display: block
+	&_active
+		background-color: $active
+	&_white
+		background-color: #ffffff
+.dark-color
+	color: #1b1b1b
+.header
+	background: #f2f2f2
+	&-top
+		background: linear-gradient(to bottom, #f7f7f7, #ebebeb)
+		padding: 22px 0 20px
+	&-flex
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&-left
+		width: 360px
+		flex-shrink: 0
+		margin-top: 5px
+	&-list
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&-item
+		&-link
+			color: #1e0f00
+			font-family: "ProximaNovaSemiBold"
+			font-size: 15px
+			line-height: 34px
+			text-decoration: none
+			display: inline-block
+			position: relative
+			&:after
+				position: absolute
+				content: ''
+				width: 100%
+				height: 1px
+				background: #1e0f00
+				left: 0
+				bottom: 7px
+	&-right
+		width: 100%
+		display: flex
+		justify-content: flex-end
+		align-items: center
+	&-link
+		color: #40362b
+		font-size: 15px
+		font-family: "ProximaNovaSemiBold"
+		text-decoration: none
+		padding-left: 30px
+		margin-left: 22px
+		&_user
+			background: url(../img/user.png) no-repeat left center
+		&_city
+			background: url(../img/location.png) no-repeat left 7px center
+	&-btn
+		color: #ffffff
+		font-size: 11px
+		font-family: "ProximaNovaExtraBold"
+		line-height: 32px
+		text-transform: uppercase
+		letter-spacing: 0.3px
+		box-shadow: 2px 2px 13px rgba(165, 198, 77, 0.4)
+		background-color: #381a06
+		padding: 0 25px
+		border-radius: 20px
+		margin-left: 35px
+		&:hover
+			background: $active
+			color: #a52a2a
+			.active-color
+				color: #a52a2a
+		&_white
+			&:hover
+				background: #ffffff
+	&-phone
+		color: #1b1b1b
+		font-size: 20px
+		font-family: "ProximaNovaExtraBold"
+		line-height: 34px
+		text-decoration: none
+		padding-left: 30px
+		background: url(../img/phone.png) no-repeat left center
+		&_space
+			letter-spacing: 1.8px
+.line
+	background: linear-gradient(to bottom, #a5c64d, #9dbd49)
+	padding: 25px 0
+	position: relative
+	z-index: 5
+	&-flex
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&-left
+		width: 280px
+		flex-shrink: 0
+	&-right
+		width: 100%
+		margin-left: 65px
+		display: flex
+		align-items: center
+		justify-content: space-between
+	&-list
+		width: 100%
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&-icons
+		width: 170px
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		flex-shrink: 0
+		margin-left: 30px
+	&-number
+		position: absolute
+		width: 24px
+		height: 24px
+		border-radius: 50%
+		box-shadow: 2px 2px 13px rgba(165, 198, 77, 0.4)
+		background-color: #fafafa
+		display: flex
+		align-items: center
+		justify-content: center
+		color: #000000
+		font-size: 11px
+		font-family: "ProximaNovaBold"
+		position: absolute
+		top: -10px
+		right: -16px
+	&-cart
+		position: relative
+		margin: 0 16px 0 73px
+		z-index: 6
+	&-like
+		position: relative
+		&-img
+			cursor: pointer
+	&-item
+		padding: 15px 0 15px 50px
+		color: #ffffff
+		font-size: 15px
+		&_first
+			background: url(../img/send.png) no-repeat left center
+		&_second
+			background: url(../img/graf.png) no-repeat left center
+		&_third
+			background: url(../img/smile.png) no-repeat left center
+.drop
+	padding: 15px 0
+	position: relative
+	z-index: 4
+	&-hide
+		opacity: 0
+		pointer-events: none
+		position: absolute
+		top: 100%
+		width: 100%
+		left: 0
+		z-index: 3
+		background: #ffffff
+		&.active
+			opacity: 1
+			pointer-events: auto
+	&-line
+		position: relative
+		&.active
+			&:before
+				opacity: 1
+				pointer-events: auto
+			.drop-btn
+				box-shadow: none
+		&:before
+			position: absolute
+			width: 100%
+			height: 100%
+			background: #381a06
+			content: ''
+			z-index: 2
+			border-radius: 22px 22px 0 0
+			opacity: 0
+			pointer-events: none
 
+		&-flex
+			display: flex
+			justify-content: space-between
+			align-items: center
+	&-btn
+		color: #ffffff
+		font-family: "ProximaNovaExtraBold"
+		box-shadow: 2px 2px 13px rgba(165, 198, 77, 0.4)
+		background-color: #381a06
+		background-image:  url(../img/like2.png), url(../img/down.png)
+		background-position: left 17px center, right 22px center
+		background-repeat: no-repeat, no-repeat
+		border-radius: 25px
+		text-transform: uppercase
+		padding: 10px 50px
+		font-size: 16px
+		letter-spacing: -1px
+		flex-shrink: 0
+		position: relative
+		z-index: 3
+		&_active
+			padding-left: 2px
+	&-search
+		width: 830px
+		margin-left: 20px
+		position: relative
+		&-input
+			width: 100%
+			height: 43px
+			font-size: 15px
+			font-family: "ProximaNovaBold"
+			line-height: 43px
+			text-transform: uppercase
+			letter-spacing: 0.75px
+			padding: 0 120px 0 25px
+			border: none
+			border-radius: 25px
+			color: #1e0f00
+			outline: none
+		&-btn
+			position: absolute
+			color: #ffffff
+			font-size: 15px
+			font-family: "ProximaNovaBold"
+			line-height: 43px
+			text-transform: uppercase
+			letter-spacing: 0.75px
+			right: 0
+			top: 0
+			background-color: #a5c64d
+			padding: 0 20px
+			border-radius: 25px
+	&-list
+		width: 33.4%
+		background: #ffffff
+		padding: 25px 0
+		position: relative
+		box-shadow: 4px 4px 14px rgba(20, 20, 21, 0.09)
+		border-radius: 0 0 0 20px
+	&-item
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		padding: 6px 30px
+		&-img
+			width: 49px
+			height: 49px
+			display: flex
+			align-items: center
+			justify-content: center
+			margin-right: 25px
+			flex-shrink: 0
+		&-link
+			color: #1b1b1b
+			font-size: 16px
+			font-family: "ProximaNovaBold"
+			text-transform: uppercase
+			letter-spacing: 0.8px
+			text-decoration: none
+			transition: all .5s ease
+			&:hover, &.active
+				color: $active
+	&-sublist
+		position: absolute
+		width: 100%
+		left: 100%
+		top: 0
+		height: 100%
+		padding: 30px
+		background: #f7f7f7
+		opacity: 0
+		box-shadow: 4px 4px 14px rgba(20, 20, 21, 0.09)
+		pointer-events: none
+		&.active
+			opacity: 1
+			pointer-events: auto
+	&-subitem
+		padding: 15px 0
+		&-link
+			color: #1b1b1b
+			font-size: 16px
+			font-family: "ProximaNovaBold"
+			letter-spacing: 1.2px
+			text-decoration: none
+			position: relative
+			padding-left: 30px
+			transition: all .5s ease
+			&:hover, &.active
+				color: $active
+				&:before
+					opacity: 0
+			&:before
+				position: absolute
+				width: 14px
+				height: 16px
+				content: ''
+				background: url(../img/like.png) no-repeat center
+				background-size: contain
+				left: 5px
+				top: 0
+				z-index: 2
+				opacity: 1
+				transition: all .5s ease
+			&:after
+				position: absolute
+				width: 14px
+				height: 16px
+				content: ''
+				background: url(../img/like2.png) no-repeat center
+				background-size: contain
+				left: 5px
+				top: 0
+				z-index: 1
+	&-lastlist
+		position: absolute
+		width: 100%
+		height: 100%
+		left: 100%
+		top: 0
+		background: #ececec
+		padding: 30px
+		opacity: 0
+		pointer-events: none
+		box-shadow: 4px 4px 14px rgba(20, 20, 21, 0.09)
+		border-radius: 0 0 20px 0
+		&.active
+			opacity: 1
+			pointer-events: auto
+		&-img
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+			bottom: -50px
+	&-lastitem
+		padding: 15px 0
+.first
+	padding: 120px 0 170px
+	background: url(../img/bg1.jpg) no-repeat top 40% center
+	background-size: cover
+	&-left
+		width: 100%
+		max-width: 630px
+	&-title
+		text-transform: uppercase
+		font-family: "ProximaNovaExtraBold"
+		font-size: 44px
+		letter-spacing: 2.2px
+		line-height: 1.15
+		margin-bottom: 5px
+		&_big
+			font-size: 56px
+			letter-spacing: 2.8px
+	&-subtitle
+		font-size: 30px
+		font-family: "ProximaNovaExtraBold"
+		letter-spacing: 0.8px
+		line-height: 1
+	&-bottom
+		margin-top: 30px
+		padding-left: 170px
+		padding-right: 60px
+		background: url(../img/medal.png) no-repeat left top
+		padding-bottom: 10px
+		&-text
+			color: #747474
+			font-size: 19px
+			letter-spacing: 0.9px
+	&-btn
+		box-shadow: 2px 2px 13px rgba(165, 198, 77, 0.4)
+		background-color: #a5c64d
+		color: #ffffff
+		font-family: "ProximaNovaBold"
+		font-size: 18px
+		line-height: 30px
+		text-transform: uppercase
+		letter-spacing: 1px
+		padding: 20px 35px
+		border-radius: 40px
+		margin-top: 35px
+.second
+	background: #ffffff
+	padding: 50px 0 30px
+	position: relative
+	text-align: center
+	.container
+		z-index: 4
+	&:before
+		content: ''
+		position: absolute
+		width: 100%
+		height: 400px
+		background: url(../img/mask1.png) no-repeat top center
+		left: 0
+		top: -60px
+		background-size: cover
+	&:after
+		content: ''
+		position: absolute
+		width: 100%
+		height: 400px
+		background: url(../img/mask2.png) no-repeat bottom center
+		left: 0
+		bottom: -60px
+		background-size: cover
+		z-index: 3
+	&-title
+		color: #381a06
+		font-family: "ProximaNovaExtrabold"
+		font-size: 30px
+		text-transform: uppercase
+		letter-spacing: 1.5px
+	&-subtitle
+		color: #1b1b1b
+		font-size: 20px
+		letter-spacing: 1px
+		max-width: 870px
+		margin: 2px auto 20px
+	&-list
+		display: flex
+		flex-wrap: wrap
+		margin-top: 30px
+	&-item
+		width: 25%
+		margin-bottom: 40px
+		&-block
+			height: 240px
+			display: flex
+			align-items: flex-end
+			overflow: hidden
+		&-text
+			color: #1b1b1b
+			font-family: "ProximaNovaBold"
+			font-size: 16px
+			text-transform: uppercase
+			letter-spacing: 0.8px
+			text-decoration: none
+		&-link
+			display: block
+			text-decoration: none
+			border: 2px solid #ffffff
+			padding-bottom: 20px
+			&:hover
+				border-color: $active
+		&-img
+			margin: 0 auto
+			&_first
+				max-width: 240px
+			&_second
+				max-width: 220px
+			&_third
+				max-width: 250px
+			&_fifth
+				max-width: 170px
+				margin-bottom: 10px
+			&_sixth
+				margin-bottom: 30px
+			&_seventh
+				max-width: 200px
+				margin-bottom: 10px
+.third
+	background: url(../img/bg2.png) no-repeat top center
+	background-size: cover
+	padding: 200px 0 120px
+	&-title
+		color: #1b1b1b
+		font-family: "ProximaNovaExtrabold"
+		font-size: 48px
+		text-transform: uppercase
+		letter-spacing: 2.3px
+		max-width: 560px
+		line-height: 58px
+		&_big
+			font-size: 65px
+			letter-spacing: 4.8px
+	&-block
+		width: 500px
+		padding: 50px 50px 50px 185px
+		margin-top: 55px
+		background: url(../img/medal2.png), url(../img/bg_third.png)
+		background-repeat: no-repeat, no-repeat
+		background-position: left 35px top 55px, left 0 top 5px
+		margin-left: -20px
+	&-text
+		color: #ffffff
+		font-family: "ProximaNovaSemibold"
+		font-size: 15px
+		letter-spacing: 0.75px
+	&-btn
+		box-shadow: 2px 2px 13px rgba(92, 120, 18, 0.4)
+		background-color: #ffffff
+		color: #86a632
+		font-family: "ProximaNovaExtrabold"
+		font-size: 12px
+		line-height: 32px
+		text-transform: uppercase
+		letter-spacing: 0.6px
+		padding: 0 18px
+		border-radius: 15px
+		margin-top: 27px
+	&-subtitle
+		color: #381a06
+		font-family: "ProximaNovaExtrabold"
+		font-size: 30px
+		text-transform: uppercase
+		letter-spacing: 1.5px
+		max-width: 730px
+		margin: 130px auto 0
+		text-align: center
+	&-list
+		display: flex
+		justify-content: space-between
+		margin-top: 85px
+	&-item
+		text-align: center
+		&_first, &_second, &_third
+			width: 175px
+		&_fourth
+			width: 210px
+		&_fifth
+			width: 200px
+		&-img
+			margin: 0 auto
+		&-title
+			color: #1b1b1b
+			font-family: "ProximaNovaExtrabold"
+			font-size: 14px
+			text-transform: uppercase
+			letter-spacing: 0.7px
+			margin-top: 25px
+		&-text
+			color: #545454
+			font-size: 14px
+			letter-spacing: 0.7px
+			margin-top: 10px
+.fourth
+	padding: 85px 0 110px
+	text-align: center
+	position: relative
+	&:before
+		content: ''
+		position: absolute
+		width: 100%
+		height: 400px
+		background: url(../img/mask1.png) no-repeat top center
+		left: 0
+		top: -60px
+		background-size: cover
+	&:after
+		content: ''
+		position: absolute
+		width: 100%
+		height: 100%
+		background: url(../img/bg3.png) no-repeat bottom center
+		background-size: cover
+		left: 0
+		bottom: 0
+	&-title
+		color: #381a06
+		font-family: "ProximaNovaExtrabold"
+		font-size: 30px
+		text-transform: uppercase
+		letter-spacing: 1.5px
+		max-width: 630px
+		margin: 0 auto
+	&-block
+		display: flex
+		justify-content: flex-start
+		margin-top: 90px
+		flex-wrap: wrap
+		overflow: hidden
+		transition: all .5s ease
+	&-item
+		background: #0b0b0b
+		width: 370px
+		height: 230px
+		border-radius: 10px
+		overflow: hidden
+		margin: 10px
+	&-btn
+		box-shadow: 2px 2px 13px rgba(165, 198, 77, 0.4)
+		background-color: #a5c64d
+		color: #ffffff
+		font-family: "ProximaNovaExtrabold"
+		font-size: 18px
+		line-height: 69px
+		text-transform: uppercase
+		letter-spacing: 0.9px
+		padding: 0 48px
+		border-radius: 37px
+		margin-top: 95px
+.fifth
+	padding: 80px 0 135px
+	background: $active url(../img/bg4.png) no-repeat top center
+	background-size: cover
+	&-title
+		color: #381a06
+		font-family: "ProximaNovaExtrabold"
+		font-size: 30px
+		text-transform: uppercase
+		letter-spacing: 1.5px
+		max-width: 460px
+		margin: 0 auto
+		text-align: center
+	&-flex
+		display: flex
+		justify-content: flex-end
+	&-block
+		width: 500px
+		margin-top: 100px
+	&-text
+		color: #1b1b1b
+		font-size: 20px
+		letter-spacing: 1px
+		padding-left: 20px
+	&-list
+		margin-top: 60px
+	&-item
+		padding: 30px 10px 45px 105px
+		color: #1b1b1b
+		font-family: "ProximaNovaBold"
+		font-size: 17px
+		text-transform: uppercase
+		letter-spacing: 0.85px
+		background: url(../img/check.png) no-repeat left 14px top
+.sixth
+	background: $active
+	padding: 10px 0 80px
+	text-align: center
+	&-title
+		color: #ffffff
+		font-family: "ProximaNovaExtrabold"
+		font-size: 30px
+		text-transform: uppercase
+		letter-spacing: 1.5px
+	&-text
+		color: #ffffff
+		font-size: 20px
+		letter-spacing: 1px
+		max-width: 800px
+		margin: 15px auto 0
+	&-slider
+		margin: 45px -10px 0
+		&-item
+			img
+				margin: 0 auto
+				box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.08)
+		.slick-prev, .slick-next
+			width: 20px
+			height: 36px
+		.slick-next
+			right: -40px
+		.slick-prev
+			left: -40px
+		.slick-next:before, .slick-prev:before
+			content: ''
+			width: 100%
+			height: 100%
+			display: block
+		.slick-next:before
+			background: url(../img/arrow.png) no-repeat center
+			transform: rotate(180deg)
+		.slick-prev:before
+			background: url(../img/arrow.png) no-repeat center
+.seventh
+	padding: 90px 0 90px
+	background: url(../img/bg5.jpg) no-repeat top center
+	background-size: cover
+	&-title
+		color: #381a06
+		font-family: "ProximaNovaExtrabold"
+		font-size: 30px
+		text-transform: uppercase
+		letter-spacing: 1.5px
+		text-align: center
+	&-text
+		color: #1b1b1b
+		font-size: 20px
+		letter-spacing: 1px
+		text-align: center
+		margin-top: 15px
+	&-review
+		margin-top: 70px
+		text-align: center
+		&-container
+			overflow: hidden
+			transition: all .5s ease
+	&-form
+		max-width: 570px
+		text-align: center
+		margin: 95px auto 0
+		&-title
+			color: #381a06
+			font-family: "ProximaNovaBold"
+			font-size: 24px
+			text-transform: uppercase
+			text-align: center
+		&-input
+			background-color: #ffffff
+			width: 100%
+			height: 60px
+			line-height: 60px
+			color: rgba(84, 84, 84, 0.7)
+			font-size: 15px
+			border: none
+			outline: none
+			padding: 0 20px
+			font-family: "ProximaNova"
+			margin-top: 25px
+		&-textarea
+			background-color: #ffffff
+			width: 100%
+			min-height: 120px
+			color: rgba(84, 84, 84, 0.7)
+			font-size: 15px
+			border: none
+			outline: none
+			padding: 20px 25px
+			font-family: "ProximaNova"
+			margin-top: 20px
+			resize: none
+		&-btn
+			box-shadow: 2px 2px 13px rgba(27, 27, 27, 0.4)
+			background-color: #381a06
+			color: #ffffff
+			font-family: "ProximaNovaExtrabold"
+			font-size: 14px
+			text-transform: uppercase
+			letter-spacing: 0.85px
+			line-height: 57px
+			padding: 0 65px
+			border-radius: 30px
+			margin-top: 15px
+.comment
+	display: flex
+	justify-content: space-between
+	align-items: flex-start
+	padding-bottom: 82px
+	text-align: left
+	&-left
+		width: 250px
+		flex-shrink: 0
+		margin-right: 25px
+		background: $active
+		padding: 5px 10px 5px 20px
+		color: #ffffff
+		line-height: 24px
+		&-name
+			font-family: "ProximaNovaBold"
+			font-size: 14px
+			text-transform: uppercase
+			display: inline-block
+			margin-right: 10px
+			position: relative
+			&:after
+				content: ''
+				width: 1px
+				height: 11px
+				background: #ffffff
+				display: block
+				position: absolute
+				top: 5px
+				right: -9px
+		&-date
+			font-size: 14px
+		&-text
+			font-family: "ProximaNovaBold"
+			font-size: 14px
+	&-right
+		width: 100%
+		margin-top: 13px
+		&-text
+			color: #545454
+			font-size: 15px
+			line-height: normal
+.eight
+	padding: 70px 0 115px
+	text-align: center
+	background: url(../img/bg6.jpg) no-repeat top center
+	background-size: cover
+	&-title
+		color: #381a06
+		font-family: "ProximaNovaExtrabold"
+		font-size: 30px
+		text-transform: uppercase
+		letter-spacing: 1.5px
+		text-align: center
+	&-block
+		display: flex
+		justify-content: space-between
+		margin-top: 70px
+	&-item
+		width: 269px
+		box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.08)
+		border-radius: 10px
+		overflow: hidden
+		background-color: $active
+		font-size: 0
+	&-text
+		color: #ffffff
+		font-family: "ProximaNovaBold"
+		font-size: 14px
+		letter-spacing: 0.7px
+		background-color: $active
+		padding: 10px
+		text-align: left
+	&-btn
+		box-shadow: 2px 2px 13px rgba(27, 27, 27, 0.4)
+		background-color: #381a06
+		color: #ffffff
+		font-family: "ProximaNovaExtrabold"
+		font-size: 14px
+		text-transform: uppercase
+		letter-spacing: 0.85px
+		margin-top: 75px
+		line-height: 57px
+		padding: 0 35px
+		border-radius: 30px
+.footer
+	padding: 40px 0 30px
+	background: $active
+	position: relative
+	&:before
+		width: 100%
+		height: 100%
+		position: absolute
+		content: ''
+		background: url(../img/mask3.png) no-repeat top center
+		top: -55px
+		left: 0
+		background-size: cover
+	&-flex
+		display: flex
+		justify-content: space-between
+	&-left
+		width: 300px
+		&-block
+			margin-top: 25px
+	&-text
+		color: #ffffff
+		font-family: "ProximaNovaSemibold"
+		font-size: 16px
+		letter-spacing: 0.8px
+		margin-bottom: 16px
+	&-center
+		width: 205px
+	&-right
+		width: 270px
+		&-flex
+			display: flex
+			justify-content: space-between
+		&-btn
+			color: #1b1b1b
+			font-family: "ProximaNovaExtrabold"
+			font-size: 12px
+			text-transform: uppercase
+			letter-spacing: 0.6px
+			line-height: 30px
+			padding: 0 15px
+			border-radius: 20px
+			margin-top: -5px
+			box-shadow: 2px 2px 13px rgba(165, 198, 77, 0.4)
+			background-color: #ffffff
+	&-title
+		color: #ffffff
+		font-family: "ProximaNovaExtrabold"
+		font-size: 23px
+		text-transform: uppercase
+		letter-spacing: 1.15px
+		margin: 15px 0 35px
+	&-item
+		margin-bottom: 15px
+		&-link
+			color: #ffffff
+			font-family: "ProximaNovaSemibold"
+			font-size: 16px
+			letter-spacing: 0.8px
+			text-decoration: none
+			position: relative
+			display: inline-block
+			&:after
+				position: absolute
+				width: 100%
+				height: 1px
+				background: #ffffff
+	&-list
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		&-link
+			color: #ffffff
+			font-family: "ProximaNovaSemibold"
+			font-size: 16px
+			padding-left: 27px
+			display: inline-block
+			text-decoration: none
+			margin-bottom: 15px
+			&_city
+				background: url(../img/city2.png) no-repeat left center
+			&_mail
+				background: url(../img/mail.png) no-repeat left center
+			&_phone
+				background: url(../img/phone.png) no-repeat left center
+				background-size: 16px
+	&-info
+		color: #ffffff
+		font-family: "ProximaNovaSemibold"
+		font-size: 14px
+		letter-spacing: 0.7px
+		text-align: center
+		margin-top: 30px
+.social
+	display: flex
+	flex-direction: column
+	justify-content: space-around
+	padding-right: 25px
+.wow
+	visibility: hidden
+.fixed-header
+	background: $active
+	padding: 10px 0
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	z-index: 6
+	opacity: 0
+	pointer-events: none
+	transition: opacity .5s ease
+	&.active
+		opacity: 1
+		pointer-events: auto
+	&-flex
+		display: flex
+		justify-content: space-between
+		align-items: center
+		position: relative
+	&-right
+		display: flex
+		justify-content: flex-end
+		align-items: center
+	&-search
+		margin-left: 20px
+		position: relative
+		width: 40px
+		height: 43px
+		overflow: hidden
+		transition: all .5s ease
+		&.active
+			width: 300px
+			.fixed-header-slide
+				transform: translateX(0)
+				pointer-events: auto
+			.fixed-header-img
+				pointer-events: none
+	&-img
+		cursor: pointer
+		width: 20px
+		height: 20px
+		position: absolute
+		right: 12px
+		top: 12px
+		z-index: 2
+		pointer-events: auto
+	&-slide
+		width: 300px
+		margin-left: 0
+		pointer-events: none
+		transition: all .5s ease
+		transform: translateX(40px)
+	&-input
+		padding-right: 45px
+	.line-cart
+		margin-left: 40px
+	.line-icons
+		width: 130px
+		margin-left: 0
+	&-btn
+		width: 45px
+		position: absolute
+		right: 0
+		top: 0
+		height: 100%
+		z-index: 3
+		border-radius: 0 25px 25px 0
+		background: transparent
+	.drop-line:before
+		width: 250px
+.social-svg
+	&_fb
+		width: 16px
+		height: 20px
+	&_tw
+		width: 20px
+		height: 20px
+	&_inst
+		width: 16px
+		height: 16px
+	&_tube
+		width: 16px
+		height: 16px
+	&_t
+		width: 16px
+		height: 16px
+	path
+		transition: all .5s ease
+	&:hover
+		path
+			fill: #ffffff
+.cart
+	width: 570px
+	position: absolute
+	background: #ffffff
+	top: 65px
+	right: -45px
+	box-shadow: 0 0 90px rgba(0, 0, 0, 0.22)
+	border-radius: 10px
+	opacity: 0
+	pointer-events: none
+	transition: all .2s ease
+	&.active
+		opacity: 1
+		pointer-events: auto
+	&-row
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 20px
+		border-bottom: 1px solid #dbdbdb
+		&-left
+			flex-shrink: 0
+			width: 80px
+			&_big
+				width: 100%
+				flex-shrink: 1
+		&-right
+			width: 100%
+			display: flex
+			justify-content: space-between
+			align-items: center
+			margin-left: 25px
+			&_sm
+				width: 170px
+				flex-shrink: 0
+		&-text
+			display: inline-block
+			color: #361906
+			font-family: "ProximaNovaBlack"
+			font-size: 16px
+			letter-spacing: 0.8px
+			margin-right: 5px
+			&_upper
+				text-transform: uppercase
+	&-name
+		width: 80px
+		color: #361906
+		font-family: "ProximaNovaExtraBold"
+		font-size: 14px
+		line-height: 16px
+		letter-spacing: 0.7px
+	&-price
+		color: #361906
+		font-family: "ProximaNovaBlack"
+		font-size: 16px
+		text-transform: uppercase
+		letter-spacing: 0.8px
+		margin-left: 23px
+		width: 100%
+		text-align: right
+		margin-right: 30px
+	&-items
+		color: #361906
+		font-family: "ProximaNovaBlack"
+		font-size: 16px
+		letter-spacing: 0.8px
+		width: 65px
+		flex-shrink: 0
+		text-align: right
+		margin-right: 60px
+	&-remove
+		width: 29px
+		height: 29px
+		background-color: #f0f0f0
+		display: flex
+		align-items: center
+		justify-content: center
+		border-radius: 50%
+		font-size: 0
+		cursor: pointer
+		flex-shrink: 0
 
+		img
+			width: 8px
+			height: 8px
+	&-title
+		font-family: "ProximaNovaExtraBold"
+		text-transform: uppercase
+		font-size: 18px
+		margin-bottom: 10px
+		padding-left: 22px
+	&-block
+		padding-top: 20px
+		border-radius: 10px
+		overflow: hidden
+	&-btn
+		box-shadow: 2px 2px 13px rgba(165, 198, 77, 0.4)
+		background-color: #381a06
+		width: 100%
+		height: 33px
+		line-height: 33px
+		color: #ffffff
+		font-family: "ProximaNovaExtrabold"
+		font-size: 12px
+		text-transform: uppercase
+		letter-spacing: 0.6px
+		border-radius: 20px
+.like
+	width: 450px
+	position: absolute
+	background: #ffffff
+	top: 65px
+	right: -45px
+	box-shadow: 0 0 90px rgba(0, 0, 0, 0.22)
+	border-radius: 10px
+	opacity: 0
+	pointer-events: none
+	transition: all .2s ease
+	&.active
+		opacity: 1
+		pointer-events: auto
+.cart-popup
+	&:before
+		content: ''
+		position: absolute
+		top: -40px
+		right: 37px
+		border: 20px solid transparent
+		border-bottom: 20px solid #ffffff
 @import "media" // Всегда в конце

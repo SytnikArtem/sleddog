@@ -17,20 +17,22 @@
   },
   "homepage": "https://github.com/SytnikArtem/my-gulp-project#readme",
   "devDependencies": {
-    "browser-sync": "^2.23.6",
+    "browser-sync": "^2.26.3",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-cache": "^1.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
-    "gulp-imagemin": "^4.1.0",
+    "gulp-imagemin": "^5.0.3",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglifyjs": "^0.6.2"
   },
   "dependencies": {
-    "gulp-tinypng-compress": "^1.2.1"
+    "bower": "^1.8.4",
+    "gulp-tinypng-compress": "^1.2.1",
+    "package.json": "^2.0.1"
   }
 }

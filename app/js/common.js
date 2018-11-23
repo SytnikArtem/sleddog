@@ -43,14 +43,44 @@ $(document).ready(function() {
 
     });
     slickSlider.slick({
-        slidesToShow: 4
+        slidesToShow: 4,
+        infinite: true,
+        responsive: [
+            {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    centerMode: true,
+                    arrows: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
     });
     var wow = new WOW(
         {
             boxClass:     'wow',      // animated element css class (default is wow)
             animateClass: 'animated', // animation css class (default is animated)
             offset:       100,          // distance to the element when triggering the animation (default is 0)
-            mobile:       true,       // trigger animations on mobile devices (default is true)
+            mobile:       false,       // trigger animations on mobile devices (default is true)
             live:         true,       // act on asynchronously loaded content (default is true)
             callback:     function(box) {
                 // the callback is fired every time an animation is started
@@ -96,18 +126,82 @@ $(document).ready(function() {
     searchBtn.click(function(){
        $('.fixed-header-search').addClass('active');
     });
-});
-$(window).scroll(function(){
-    var fixedHeader = $('.fixed-header');
-    var header = $('.header');
-    var listDrop = $('.list-drop');
-    if ($(this).scrollTop() > header.height()) {
-        fixedHeader.addClass('active');
-    } else {
-        fixedHeader.removeClass('active');
-        $('.fixed-header-flex').removeClass('active');
-        fixedHeader.find('.drop-hide').removeClass('active');
-        listDrop.removeClass('active');
-        $('.cart-popup').removeClass('active')
+    $('.cart-remove').click(function(e){
+        e.preventDefault();
+    });
+
+    function isMobile(){
+        if ($(window).width() < 768) {
+            return true
+        }
+        else {
+            return false
+        }
     }
+    function fixedHeader() {
+        var fixedHeader = $('.fixed-header');
+        var listDrop = $('.list-drop');
+        if (isMobile()) {
+            fixedHeader.addClass('active');
+            console.log('ww')
+        } else {
+            fixedHeader.removeClass('active');
+            $('.fixed-header-flex').removeClass('active');
+            fixedHeader.find('.drop-hide').removeClass('active');
+            listDrop.removeClass('active');
+            $('.fixed-header').find('.cart-popup').removeClass('active')
+        }
+    }
+    fixedHeader()
+});
+
+$(window).scroll(function(){
+    function isMobile(){
+        if ($(window).width() < 769) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    function fixedHeader() {
+        var fixedHeader = $('.fixed-header');
+        var header = $('.header');
+        var listDrop = $('.list-drop');
+        if ($(this).scrollTop() > header.height() || isMobile()) {
+            fixedHeader.addClass('active');
+        } else {
+            fixedHeader.removeClass('active');
+            $('.fixed-header-flex').removeClass('active');
+            fixedHeader.find('.drop-hide').removeClass('active');
+            listDrop.removeClass('active');
+            $('.fixed-header').find('.cart-popup').removeClass('active')
+        }
+    }
+    fixedHeader()
+});
+$(window).resize(function(){
+    function isMobile(){
+        if ($(window).width() < 769) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    function fixedHeader() {
+        var fixedHeader = $('.fixed-header');
+        var listDrop = $('.list-drop');
+        if (isMobile()) {
+            fixedHeader.addClass('active');
+            console.log('ww')
+        } else {
+            fixedHeader.removeClass('active');
+            $('.fixed-header-flex').removeClass('active');
+            fixedHeader.find('.drop-hide').removeClass('active');
+            listDrop.removeClass('active');
+            $('.fixed-header').find('.cart-popup').removeClass('active')
+        }
+    }
+    fixedHeader();
 });

@@ -217,6 +217,12 @@
     padding: 0 10px
   .header-phone-text
     display: none
+  .drop-item
+    padding: 6px 15px
+  .drop-sublist, .drop-lastlist
+    padding: 30px 20px
+  .drop-subitem-link
+    letter-spacing: 0.8px
   .header-phone
     display: block
     width: 30px
@@ -254,7 +260,7 @@
     overflow: hidden
   .eight-item
     width: 180px
-  .cart-popup
+  .fixed-header-search
     display: none
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px)
@@ -276,6 +282,8 @@
     display: none
   .fixed-header
     padding: 15px 0
+    background: #a5c64d url(../img/logo_mob.png) no-repeat center
+    background-size: 50px
   .header
     padding-top: 60px
   .first
@@ -344,11 +352,127 @@
     font-size: 12px
   .third-block
     margin-left: -30px
+    width: 100%
   .fourth-item
     width: 200px
     height: 120px
   .fifth
     background-position: bottom left
+    position: relative
+    &:before
+      content: ''
+      position: absolute
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+      background: rgba(246, 246, 246, 0.7)
+  .sixth
+    margin-top: -40px
+    padding: 50px 0
+    position: relative
+  .comment
+    flex-direction: column
+  .eight-block
+    flex-wrap: wrap
+    justify-content: space-around
+  .eight-item
+    margin-bottom: 20px
+    width: 200px
+  .footer-flex
+    flex-direction: column
+  .footer-left
+    width: 100%
+    text-align: center
+    border-bottom: 1px solid #94b63a
+  .line-link-mobile
+    display: block
+    width: 24px
+  .footer-left .line-left
+    display: flex
+    width: 100%
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 0
+    border-bottom: 1px solid #94b63a
+    padding: 0 10px 10px
+  .show767
+    display: block
+  .footer .container
+    max-width: 100%
+    padding: 0
+  .line-link
+    width: 200px
+  .footer-center
+    width: 100%
+    margin-left: 0
+    text-align: center
+    border-bottom: 1px solid #94b63a
+  .footer-list
+    align-items: center
+  .footer-right
+    width: 100%
+    text-align: center
+    border-bottom: 1px solid #94b63a
+  .footer-right-flex
+    justify-content: center
+    padding-bottom: 15px
+    .footer-list
+      align-items: flex-start
+      margin-right: 20px
+  .slideup-mob, .footer:before
+    display: none
+  .footer-title
+    padding: 15px 0
+    position: relative
+    &:after
+      content: ''
+      width: 14px
+      height: 18px
+      background: url(../img/arrow.png) no-repeat left center
+      display: block
+      position: absolute
+      transform: rotate(-90deg)
+      right: 15px
+      top: calc(50% - 9px)
+      transition: all .5s ease
+    &.active
+      &:after
+        transform: rotate(90deg)
+  .drop-list
+    width: 100%
+    border-radius: 0 0 20px 20px
+  .drop-sublist
+    position: static
+    opacity: 1
+    pointer-events: auto
+    background: #ffffff
+    box-shadow: none
+    padding: 0
+    display: none
+  .drop-item
+    flex-wrap: wrap
+  .drop-lastlist
+    position: static
+    opacity: 1
+    pointer-events: auto
+    box-shadow: none
+    border-radius: 0
+    padding: 10px 20px 0 20px
+    display: none
+  .drop-lastlist-img
+    display: none
+  .drop-item
+    padding: 5px 0
+  .drop-item-img
+    margin-left: 10px
+  .drop-subitem-link
+    margin-left: 10px
+  .drop-subitem
+    &.active
+      background: #ececec
+  .menu-btn
+    display: block
 /**/
 
 @media only screen and (max-width : 600px)
@@ -359,12 +483,201 @@
     width: 100%
     margin-left: 0
     margin-top: 10px
+  .drop-hide
+    top: 40px
 
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px)
-	/**/
-
-
+@media only screen and (max-width : 490px)
+  .container
+    max-width: 320px
+  .drop-btn
+    width: 100%
+  .drop-item-link
+    font-size: 14px
+    max-width: 200px
+  .drop-subitem-link
+    letter-spacing: 0
+  .first-title_big
+    font-size: 18px
+    letter-spacing: 1.4px
+  .drop-btn
+    background-position: left 30px center, right 22px center
+  .first
+    padding: 40px 0 20px
+  .first-title
+    font-size: 14px
+    letter-spacing: 1.4px
+    margin-bottom: 3px
+  .first-subtitle
+    font-size: 14px
+    letter-spacing: 0
+  .first-bottom-text
+    font-size: 14px
+  .first-bottom
+    background-size: 65px
+    padding-left: 80px
+    margin: 30px auto 0
+    background-position: left 5px top
+    padding-bottom: 20px
+  .second-title
+    font-size: 19px
+    letter-spacing: 0.95px
+  .second
+    padding: 25px 0 40px
+  .second-subtitle
+    font-size: 14px
+    margin-top: 12px
+    letter-spacing: 0
+    padding: 0 5px
+  .second-item
+    width: 50%
+  .second-item-img_first
+    max-width: 120px
+    margin-bottom: 20px
+  .second-item-block
+    height: 125px
+  .second-item-img_second
+    max-width: 100px
+    margin-bottom: 25px
+  .second-item-text
+    font-size: 14px
+    letter-spacing: 0
+  .second-item-img_third
+    max-width: 110px
+    margin-bottom: 10px
+  .second-list
+    margin-top: 40px
+  .second-item-img_fourth
+    max-width: 130px
+    margin-bottom: 0
+  .second-item-img_fifth
+    max-width: 75px
+    margin-bottom: 10px
+  .second-item-img_sixth
+    margin-bottom: 20px
+  .second-item-img_seventh
+    max-width: 100px
+  .second-item-img_eight
+    max-width: 100px
+  .third-title_big
+    font-size: 31px
+    letter-spacing: 1.3px
+  .third-title
+    font-size: 21px
+    letter-spacing: 1px
+    line-height: 26px
+  .third
+    padding: 60px 0
+    background-position: top center
+    background-color: #ffffff
+  .third-block
+    margin-top: 210px
+    padding: 45px 15px 50px 80px
+    background: url(../img/medal2.png), url(../img/bg_third_mob.png)
+    background-repeat: no-repeat, no-repeat
+    background-size: 55px, auto
+    background-position: left 11px top 55px, left -175px top 5px
+    margin-left: -10px
+  .third-text
+    font-size: 14px
+    letter-spacing: 0
+  .third-btn
+    margin-top: 20px
+  .third-subtitle
+    font-size: 19px
+    letter-spacing: 0.95px
+    padding: 0 15px
+    margin-top: 40px
+  .third-item-title
+    font-size: 12px
+    min-height: 45px
+    padding: 0
+  .third-item
+    margin-top: 30px
+  .third-list
+    margin-top: 10px
+  .fourth-title
+    font-size: 19px
+    letter-spacing: 0.95px
+    padding: 0 30px
+  .fourth
+    padding: 30px 0 40px
+  .fourth-item
+    width: 100%
+    height: 187px
+    margin: 10px 0
+  .fourth-block
+    margin-top: 20px
+  .fourth-btn
+    letter-spacing: 0
+    padding: 0 45px
+    line-height: 45px
+    margin-top: 20px
+  .fifth-title
+    font-size: 19px
+    letter-spacing: 0.95px
+    padding: 0 10px
+  .fifth
+    padding: 35px 0 60px
+  .fifth-block
+    margin-top: 35px
+  .fifth-text
+    text-align: center
+    padding: 0 10px
+  .fifth-item
+    padding: 30px 10px 25px 50px
+    background-size: 40px
+    background-position: left 3px center
+  .fifth-list
+    margin-top: 20px
+  .sixth-title
+    font-size: 19px
+    letter-spacing: 0.95px
+  .sixth
+    padding: 35px 0 45px
+  .sixth-text
+    font-size: 20px
+    margin-top: 10px
+  .sixth-slider
+    margin-top: 50px
+  .seventh-title
+    font-size: 19px
+    letter-spacing: 0.95px
+    padding: 0 10px
+  .seventh
+    padding: 35px 0 40px
+  .seventh-text
+    margin-top: 10px
+  .comment
+    padding-bottom: 25px
+  .comment-left
+    width: 100%
+  .seventh-review
+    margin-top: 30px
+  .seventh-form-title
+    font-size: 19px
+  .eight-title
+    font-size: 19px
+    letter-spacing: 0.95px
+  .eight
+    padding: 35px 0 40px
+  .eight-item
+    width: 100%
+  .eight-block
+    margin-top: 30px
+  .eight-btn
+    line-height: 45px
+    margin-top: 10px
+  .seventh-form-btn
+    line-height: 45px
+  .line-link
+    width: 180px
+  .footer
+    padding: 20px 0 30px
+  .footer-title
+    font-size: 19px
+  .footer-text
+    font-size: 14px
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px)
 	/**/

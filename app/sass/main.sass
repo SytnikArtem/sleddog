@@ -185,12 +185,12 @@ img
 		font-size: 15px
 		font-family: "ProximaNovaSemiBold"
 		text-decoration: none
-		padding-left: 30px
+		padding: 5px 0 5px 30px
 		margin-left: 22px
 		&_user
 			background: url(../img/user.png) no-repeat left center
 		&_city
-			background: url(../img/location.png) no-repeat left 7px center
+			background: url(../img/location.png) no-repeat left center
 	&-btn
 		color: #ffffff
 		font-size: 11px
@@ -288,7 +288,7 @@ img
 .drop
 	padding: 15px 0
 	position: relative
-	z-index: 4
+	z-index: 5
 	&-hide
 		opacity: 0
 		pointer-events: none
@@ -298,6 +298,7 @@ img
 		left: 0
 		z-index: 3
 		background: #ffffff
+		border-radius: 0 0 20px 20px
 		&.active
 			opacity: 1
 			pointer-events: auto
@@ -418,6 +419,7 @@ img
 			pointer-events: auto
 	&-subitem
 		padding: 15px 0
+		transition: all .5s ease
 		&-link
 			color: #1b1b1b
 			font-size: 16px
@@ -786,6 +788,7 @@ img
 			img
 				margin: 0 auto
 				box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.08)
+				width: 270px
 		.slick-prev, .slick-next
 			width: 20px
 			height: 36px
@@ -1008,7 +1011,7 @@ img
 		font-size: 23px
 		text-transform: uppercase
 		letter-spacing: 1.15px
-		margin: 15px 0 35px
+		padding: 15px 0 35px
 	&-item
 		margin-bottom: 15px
 		&-link
@@ -1306,5 +1309,8 @@ img
 			transform: translateY(-50%)
 		&_bottom
 			bottom: 0
-
+.line-link-mobile, .show767
+	display: none
+.menu-btn
+	display: none
 @import "media" // Всегда в конце

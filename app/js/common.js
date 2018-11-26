@@ -13,17 +13,29 @@ $(document).ready(function() {
     var cartPopup = $('.cart-popup');
     var cartBtn = $('.line-like-img');
     linkItem.hover(function(){
-        $(this).parent().siblings().find(listDrop).removeClass('active');
-        $(this).parent().find(listDrop).eq(0).addClass('active');
-        $(this).parent().siblings().find(linkItem).removeClass('active');
-        $(this).addClass('active');
+        if($(window).width() > 767) {
+            $(this).parent().siblings().find(listDrop).removeClass('active');
+            $(this).parent().find(listDrop).eq(0).addClass('active');
+            $(this).parent().siblings().find(linkItem).removeClass('active');
+            $(this).addClass('active');
+        }
     });
     linkItem.click(function(e){
         e.preventDefault();
-        $(this).parent().siblings().find(listDrop).removeClass('active');
-        $(this).parent().find(listDrop).eq(0).addClass('active');
-        $(this).parent().siblings().find(linkItem).removeClass('active');
-        $(this).addClass('active');
+        if($(window).width() > 767) {
+            $(this).parent().siblings().find(listDrop).removeClass('active');
+            $(this).parent().find(listDrop).eq(0).addClass('active');
+            $(this).parent().siblings().find(linkItem).removeClass('active');
+            $(this).addClass('active');
+        }
+        else {
+            $(this).parent().siblings().find(linkItem).removeClass('active');
+            $(this).parent().siblings().find(listDrop).slideUp();
+            $(this).parent().find(listDrop).eq(0).slideToggle();
+            $(this).toggleClass('active');
+            $(this).closest('.drop-subitem').siblings().removeClass('active');
+            $(this).closest('.drop-subitem').toggleClass('active');
+        }
 
     });
     btnDrop.click(function(){
@@ -45,6 +57,7 @@ $(document).ready(function() {
     slickSlider.slick({
         slidesToShow: 4,
         infinite: true,
+        arrows: true,
         responsive: [
             {
                 breakpoint: 1000,
@@ -57,22 +70,21 @@ $(document).ready(function() {
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 767,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2
+                    arrows: false,
+                    centerMode: true,
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 490,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    arrows: false,
+                    centerMode: true,
                 }
             }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
         ]
     });
     var wow = new WOW(
@@ -152,7 +164,25 @@ $(document).ready(function() {
             $('.fixed-header').find('.cart-popup').removeClass('active')
         }
     }
-    fixedHeader()
+    fixedHeader();
+    function slideItems() {
+        var slideBtn = $('.footer-title');
+        var slideBlock = $('.slideup-mob');
+        slideBtn.click(function(){
+            $(this).toggleClass('active');
+            $(this).parent().siblings().find(slideBlock).slideUp();
+            $(this).parent().siblings().find(slideBtn).removeClass('active');
+            $(this).parent().find(slideBlock).slideToggle();
+        });
+    }
+    slideItems();
+    $(document).mouseup(function (e) {
+        var container = $(".drop-hide");
+        if (container.has(e.target).length === 0){
+            container.removeClass('active');
+            $('.drop-line').removeClass('active')
+        }
+    });
 });
 
 $(window).scroll(function(){
@@ -174,7 +204,7 @@ $(window).scroll(function(){
             fixedHeader.removeClass('active');
             $('.fixed-header-flex').removeClass('active');
             fixedHeader.find('.drop-hide').removeClass('active');
-            listDrop.removeClass('active');
+            fixedHeader.find(listDrop).removeClass('active');
             $('.fixed-header').find('.cart-popup').removeClass('active')
         }
     }
@@ -194,7 +224,6 @@ $(window).resize(function(){
         var listDrop = $('.list-drop');
         if (isMobile()) {
             fixedHeader.addClass('active');
-            console.log('ww')
         } else {
             fixedHeader.removeClass('active');
             $('.fixed-header-flex').removeClass('active');
